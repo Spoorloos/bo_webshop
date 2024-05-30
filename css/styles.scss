@@ -121,20 +121,12 @@ a {
             transform-origin: 50% calc(50% - 0.15rem);
         }
 
-        &:not(:hover) &__name::after {
-            transform: rotate(180deg);
-        }
-
         &__wrapper {
             position: absolute;
             min-width: 100%;
             display: grid;
             grid-template-rows: 0fr;
             transition: grid-template-rows 0.3s;
-        }
-
-        &:hover &__wrapper {
-            grid-template-rows: 1fr;
         }
 
         &__list {
@@ -150,33 +142,39 @@ a {
             transition: padding-block 0.3s;
         }
 
-        &:not(:hover) &__list {
-            padding-block: 0;
-        }
-
         &__list > li > a {
             display: block;
             padding: 0.5rem;
             width: 100%;
-            transition: background-color 0.2s;
             background-color: var(--header-background);
+            transition: filter 0.2s;
             &:hover { filter: invert(5%); }
+        }
+
+        &:not(:focus-within) &__name::after {
+            transform: rotate(180deg);
+        }
+
+        &:focus-within &__wrapper {
+            grid-template-rows: 1fr;
+        }
+
+        &:not(:focus-within) &__list {
+            padding-block: 0;
         }
     }
 
     &__account {
         display: flex;
         justify-content: flex-end;
+        align-items: stretch;
         gap: 2rem;
 
-        & > a {
+        & > :is(a, img) {
             transition: transform 0.2s;
+            cursor: pointer;
             &:hover { transform: scale(1.1); }
             & > img { height: 100%; }
-        }
-
-        & > img {
-            cursor: pointer;
         }
 
         &__menu {
@@ -189,29 +187,68 @@ a {
 @media screen and (max-width: 54rem) {
     .bottom-header__nav {
         display: none;
+        gap: 2rem;
+        font-size: 2.5rem;
+        font-weight: 500;
+        flex-direction: column;
+        position: absolute;
+        inset: 0;
+        background-color: var(--header-background);
+        padding: 5%;
+        z-index: 1;
 
-        &--menu {
+        :root.menu-open & {
             display: flex;
-            flex-direction: column;
-            position: absolute;
-            inset: 0;
-            background-color: var(--header-background);
-            padding: 5%;
+        }
+
+        :root.menu-open &-item__wrapper {
+            position: inherit;
+        }
+
+        :root.menu-open &-item__list {
+            font-weight: 100;
+            box-shadow: none;
         }
     }
 
     .bottom-header__account__menu {
         display: inherit;
+
+        :root.menu-open & {
+            position: absolute;
+            top: 5vw;
+            right: 5vw;
+            height: 3rem;
+            z-index: 2;
+        }
     }
 }
 
 @media screen and (max-width: 37rem) {
     .top-header {
         display: none;
+        position: absolute;
+        inset: auto 0 0 0;
+        z-index: 2;
+        justify-content: center;
+        border-top: thin solid var(--border-color);
+        border-bottom: none;
+
+        &__klarna {
+            display: none;
+        }
+
+        :root.menu-open & {
+            display: flex;
+        }
     }
 
     .bottom-header {
         flex-direction: column;
         gap: 2rem;
+
+        :root.menu-open &__nav {
+            inset: 0;
+        }
     }
 }

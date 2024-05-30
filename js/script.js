@@ -5,8 +5,7 @@ darkmodeToggle.addEventListener('click', () => {
 });
 
 const menuToggle = document.querySelector('.bottom-header__account__menu');
-const nav = document.querySelector('.bottom-header__nav');
 
 menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('bottom-header__nav--menu');
+    document.documentElement.classList.toggle('menu-open');
 });
