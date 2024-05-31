@@ -1,45 +1,10 @@
-:root {
-  --background-color: #00F;
-  --header-background: #FFF;
-  --header-text: #000;
-  --border-color: #DDD;
-}
-
-:root.darkmode {
-  --header-background: #121212;
-  --header-text: #FFF;
-  --border-color: #888;
-  --image-filter: invert(100%);
-}
-
-*, *::before, *::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.6rem;
-  font-family: system-ui, sans-serif;
-  background-color: var(--background-color);
-}
-
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
 .top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: thin solid var(--border-color);
   background-color: var(--header-background);
-  color: var(--header-text);
+  color: var(--text-color);
   padding: 0.5rem 1.5rem;
   height: 4rem;
 }
@@ -88,10 +53,12 @@ a {
   display: flex;
   align-items: center;
   background-color: var(--header-background);
-  color: var(--header-text);
+  color: var(--text-color);
 }
 .bottom-header__logo-wrapper, .bottom-header__account {
   flex: 1 1 0;
+}
+.bottom-header__logo-wrapper img, .bottom-header__account img {
   filter: var(--image-filter, none);
 }
 .bottom-header__logo {
@@ -106,7 +73,7 @@ a {
   position: relative;
 }
 .bottom-header__nav-item__name::after {
-  content: url("../../images/chevron_arrow.svg");
+  content: url("../../assets/chevron_arrow.svg");
   filter: var(--image-filter, none);
   position: absolute;
   transition: transform 0.2s;
@@ -157,17 +124,17 @@ a {
   align-items: stretch;
   gap: 2rem;
 }
-.bottom-header__account > :is(a, img) {
+.bottom-header__account > :is(a, div) {
   transition: transform 0.2s;
   cursor: pointer;
 }
-.bottom-header__account > :is(a, img):hover {
+.bottom-header__account > :is(a, div):hover {
   transform: scale(1.1);
 }
-.bottom-header__account > :is(a, img) > img {
+.bottom-header__account > :is(a, div) > img {
   height: 100%;
 }
-.bottom-header__account__menu {
+.bottom-header__account__menu-wrapper {
   display: none;
 }
 
@@ -194,10 +161,10 @@ a {
     font-weight: 100;
     box-shadow: none;
   }
-  .bottom-header__account__menu {
+  .bottom-header__account__menu-wrapper {
     display: inherit;
   }
-  :root.menu-open .bottom-header__account__menu {
+  :root.menu-open .bottom-header__account__menu-wrapper {
     position: absolute;
     top: 5vw;
     right: 5vw;
