@@ -1,66 +1,29 @@
 <header>
     <div class="top-header">
         <div class="top-header__klarna">
-            <img src="assets/klarna.svg" alt="klarna" height="100%">
+            <img src="assets/klarna.svg" alt="klarna">
             <span>Shop Now. Pay Later.</span>
         </div>
         <nav class="top-header__nav">
-            <button type="button" id="darkmode-toggle">Darkmode</button>
+            <button class="top-header__nav__darkmode" type="button">Darkmode</button>
             <a href="#">Over Ons</a>
             <a href="#">Blog</a>
             <a href="#">FAQ</a>
         </nav>
     </div>
     <div class="bottom-header">
-        <a class="bottom-header__logo-wrapper" href="/">
-            <img class="bottom-header__logo" src="assets/logo.svg" alt="logo" height="100%">
+        <a class="bottom-header__logo-wrapper" href="./">
+            <img class="bottom-header__logo" src="assets/logo.svg" alt="logo">
         </a>
         <nav class="bottom-header__nav">
-            <div class="bottom-header__nav-item">
-                <a class="bottom-header__nav-item__name" href="#">Lorem, ipsum.</a>
-                <div class="bottom-header__nav-item__wrapper">
-                    <ul class="bottom-header__nav-item__list">
-                        <li><a href="#">abc</a></li>
-                        <li><a href="#">def</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bottom-header__nav-item">
-                <a class="bottom-header__nav-item__name" href="#">Lorem, ipsum.</a>
-                <div class="bottom-header__nav-item__wrapper">
-                    <ul class="bottom-header__nav-item__list">
-                        <li><a href="#">abc</a></li>
-                        <li><a href="#">def</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bottom-header__nav-item">
-                <a class="bottom-header__nav-item__name" href="#">Lorem, ipsum.</a>
-                <div class="bottom-header__nav-item__wrapper">
-                    <ul class="bottom-header__nav-item__list">
-                        <li><a href="#">abc</a></li>
-                        <li><a href="#">def</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bottom-header__nav-item">
-                <a class="bottom-header__nav-item__name" href="#">Lorem, ipsum.</a>
-                <div class="bottom-header__nav-item__wrapper">
-                    <ul class="bottom-header__nav-item__list">
-                        <li><a href="#">abc</a></li>
-                        <li><a href="#">def</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bottom-header__nav-item">
-                <a class="bottom-header__nav-item__name" href="#">Lorem, ipsum.</a>
-                <div class="bottom-header__nav-item__wrapper">
-                    <ul class="bottom-header__nav-item__list">
-                        <li><a href="#">abc</a></li>
-                        <li><a href="#">def</a></li>
-                    </ul>
-                </div>
-            </div>
+            <?php
+                $item_name = 'Lorem, ipsum.';
+                $item_elements = [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ];
+
+                for ($i = 0; $i < 5; $i++) {
+                    include 'components/nav_item.php';
+                }
+            ?>
         </nav>
         <div class="bottom-header__account">
             <a href="#"><img src="assets/user.svg" alt="account"></a>

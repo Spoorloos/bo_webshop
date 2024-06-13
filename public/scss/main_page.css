@@ -1,0 +1,6 @@
+.hero-wrapper {
+  height: calc(100vh - 11rem);
+  background-image: url("../assets/hero_image.webp");
+  background-position: center;
+  background-size: cover;
+}

@@ -1,11 +1,20 @@
-const darkmodeToggle = document.querySelector('#darkmode-toggle');
+const rootElement = document.documentElement;
+const darkmodeToggle = document.querySelector('.top-header__nav__darkmode');
+const menuToggle = document.querySelector('.bottom-header__account__menu-wrapper');
+const heroImage = document.querySelector('#hero-image');
 
 darkmodeToggle.addEventListener('click', () => {
-    document.documentElement.classList.toggle('darkmode');
+    const isDarkmode = rootElement.classList.toggle('darkmode');
+    localStorage.setItem('darkmode', isDarkmode);
+    darkmodeToggle.innerText = isDarkmode ? 'Lightmode' : 'Darkmode';
 });
-
-const menuToggle = document.querySelector('.bottom-header__account__menu-wrapper');
 
 menuToggle.addEventListener('click', () => {
-    document.documentElement.classList.toggle('menu-open');
+    const isOpened = rootElement.classList.toggle('menu-open');
+    menuToggle.children[0].src = `assets/${isOpened ? 'close' : 'menu'}.svg`;
 });
+
+if (localStorage.getItem('darkmode') === 'true') {
+    rootElement.classList.add('darkmode');
+    darkmodeToggle.innerText = 'Lightmode';
+}

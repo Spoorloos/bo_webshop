@@ -4,6 +4,7 @@
     --text-color: #000;
     --header-background: #FFF;
     --border-color: #DDD;
+    --image-filter: none;
 }
 
 :root.darkmode {
@@ -35,8 +36,4 @@ body {
 a {
     color: inherit;
     text-decoration: inherit;
-}
-
-main {
-    padding: 2rem;
 }

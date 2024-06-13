@@ -1,4 +1,8 @@
 // Classes
+header {
+    display: contents;
+}
+
 .top-header {
     display: flex;
     justify-content: space-between;
@@ -38,7 +42,7 @@
 
         &:hover {
             text-underline-offset: 0.5rem;
-            text-decoration-color: inherit;
+            text-decoration-color: initial;
         }
     }
 
@@ -52,16 +56,19 @@
 }
 
 .bottom-header {
+    position: sticky;
+    top: 0;
     padding: 2rem;
     display: flex;
     align-items: center;
     background-color: var(--header-background);
     color: var(--text-color);
+    height: 7rem;
 
     &__logo-wrapper, &__account {
         flex: 1 1 0;
         & img {
-            filter: var(--image-filter, none);
+            filter: var(--image-filter);
         }
     }
 
@@ -71,19 +78,26 @@
 
     &__nav {
         display: flex;
-        gap: 4rem;
+        gap: 2rem;
         padding-inline: 3rem;
     }
 
     &__nav-item {
         position: relative;
 
-        &__name::after {
-            content: url('../../assets/chevron_arrow.svg');
-            filter: var(--image-filter, none);
-            position: absolute;
-            transition: transform 0.2s;
-            transform-origin: 50% calc(50% - 0.15rem);
+        &__name {
+            font-weight: inherit;
+            font-size: inherit;
+            cursor: pointer;
+            display: flex;
+            white-space: nowrap;
+
+            &__arrow {
+                height: 2.4rem;
+                aspect-ratio: 1/1;
+                filter: var(--image-filter);
+                transition: transform 0.2s;
+            }
         }
 
         &__wrapper {
@@ -95,6 +109,7 @@
         }
 
         &__list {
+            margin-top: 0.5rem;
             background-color: var(--header-background);
             list-style-type: none;
             padding: 1rem;
@@ -107,6 +122,10 @@
             transition: padding-block 0.3s;
         }
 
+        :root.darkmode &__list {
+            box-shadow: 0 0 0 1px #444;
+        }
+
         &__list > li > a {
             display: block;
             padding: 0.5rem;
@@ -116,16 +135,22 @@
             &:hover { filter: invert(5%); }
         }
 
-        &:not(:focus-within) &__name::after {
+        // 💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀
+
+        :root.menu-open &:not(:focus-within) &__name__arrow,
+        :root:not(.menu-open) &:not(:hover) &__name__arrow {
             transform: rotate(180deg);
         }
 
-        &:focus-within &__wrapper {
+        :root.menu-open &:focus-within &__wrapper,
+        :root:not(.menu-open) &:hover &__wrapper {
             grid-template-rows: 1fr;
         }
 
-        &:not(:focus-within) &__list {
+        :root.menu-open &:not(:focus-within) &__list,
+        :root:not(.menu-open) &:not(:hover) &__list {
             padding-block: 0;
+            box-shadow: none;
         }
     }
 
@@ -149,14 +174,14 @@
 }
 
 // Media queries
-@media screen and (max-width: 54rem) {
+@media screen and (max-width: 73rem) {
     .bottom-header__nav {
         display: none;
         gap: 2rem;
-        font-size: 2.5rem;
+        font-size: 3rem;
         font-weight: 500;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         inset: 0;
         background-color: var(--header-background);
         padding: 5%;
@@ -167,7 +192,7 @@
         }
 
         :root.menu-open &-item__wrapper {
-            position: inherit;
+            position: initial;
         }
 
         :root.menu-open &-item__list {
@@ -177,13 +202,13 @@
     }
 
     .bottom-header__account__menu-wrapper {
-        display: inherit;
+        display: initial;
 
         :root.menu-open & {
-            position: absolute;
+            position: fixed;
             top: 5vw;
             right: 5vw;
-            height: 3rem;
+            height: 4rem;
             z-index: 2;
         }
     }
@@ -191,8 +216,8 @@
 
 @media screen and (max-width: 37rem) {
     .top-header {
-        display: none;
-        position: absolute;
+        display: flex;
+        position: fixed;
         inset: auto 0 0 0;
         z-index: 2;
         justify-content: center;
@@ -203,17 +228,13 @@
             display: none;
         }
 
-        :root.menu-open & {
-            display: flex;
+        :root:not(.menu-open) & {
+            display: none;
         }
     }
 
     .bottom-header {
         flex-direction: column;
         gap: 2rem;
-
-        :root.menu-open &__nav {
-            inset: 0;
-        }
     }
 }

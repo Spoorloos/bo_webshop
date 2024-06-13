@@ -1,3 +1,7 @@
+header {
+  display: contents;
+}
+
 .top-header {
   display: flex;
   justify-content: space-between;
@@ -38,7 +42,7 @@
 }
 .top-header__nav > *:hover {
   text-underline-offset: 0.5rem;
-  text-decoration-color: inherit;
+  text-decoration-color: initial;
 }
 .top-header__nav > button {
   border: none;
@@ -49,35 +53,44 @@
 }
 
 .bottom-header {
+  position: sticky;
+  top: 0;
   padding: 2rem;
   display: flex;
   align-items: center;
   background-color: var(--header-background);
   color: var(--text-color);
+  height: 7rem;
 }
 .bottom-header__logo-wrapper, .bottom-header__account {
   flex: 1 1 0;
 }
 .bottom-header__logo-wrapper img, .bottom-header__account img {
-  filter: var(--image-filter, none);
+  filter: var(--image-filter);
 }
 .bottom-header__logo {
   height: 2rem;
 }
 .bottom-header__nav {
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
   padding-inline: 3rem;
 }
 .bottom-header__nav-item {
   position: relative;
 }
-.bottom-header__nav-item__name::after {
-  content: url("../../assets/chevron_arrow.svg");
-  filter: var(--image-filter, none);
-  position: absolute;
+.bottom-header__nav-item__name {
+  font-weight: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  display: flex;
+  white-space: nowrap;
+}
+.bottom-header__nav-item__name__arrow {
+  height: 2.4rem;
+  aspect-ratio: 1/1;
+  filter: var(--image-filter);
   transition: transform 0.2s;
-  transform-origin: 50% calc(50% - 0.15rem);
 }
 .bottom-header__nav-item__wrapper {
   position: absolute;
@@ -87,6 +100,7 @@
   transition: grid-template-rows 0.3s;
 }
 .bottom-header__nav-item__list {
+  margin-top: 0.5rem;
   background-color: var(--header-background);
   list-style-type: none;
   padding: 1rem;
@@ -99,6 +113,9 @@
   min-width: fit-content;
   transition: padding-block 0.3s;
 }
+:root.darkmode .bottom-header__nav-item__list {
+  box-shadow: 0 0 0 1px #444;
+}
 .bottom-header__nav-item__list > li > a {
   display: block;
   padding: 0.5rem;
@@ -109,14 +126,15 @@
 .bottom-header__nav-item__list > li > a:hover {
   filter: invert(5%);
 }
-.bottom-header__nav-item:not(:focus-within) .bottom-header__nav-item__name::after {
+:root.menu-open .bottom-header__nav-item:not(:focus-within) .bottom-header__nav-item__name__arrow, :root:not(.menu-open) .bottom-header__nav-item:not(:hover) .bottom-header__nav-item__name__arrow {
   transform: rotate(180deg);
 }
-.bottom-header__nav-item:focus-within .bottom-header__nav-item__wrapper {
+:root.menu-open .bottom-header__nav-item:focus-within .bottom-header__nav-item__wrapper, :root:not(.menu-open) .bottom-header__nav-item:hover .bottom-header__nav-item__wrapper {
   grid-template-rows: 1fr;
 }
-.bottom-header__nav-item:not(:focus-within) .bottom-header__nav-item__list {
+:root.menu-open .bottom-header__nav-item:not(:focus-within) .bottom-header__nav-item__list, :root:not(.menu-open) .bottom-header__nav-item:not(:hover) .bottom-header__nav-item__list {
   padding-block: 0;
+  box-shadow: none;
 }
 .bottom-header__account {
   display: flex;
@@ -138,14 +156,14 @@
   display: none;
 }
 
-@media screen and (max-width: 54rem) {
+@media screen and (max-width: 73rem) {
   .bottom-header__nav {
     display: none;
     gap: 2rem;
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 500;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     inset: 0;
     background-color: var(--header-background);
     padding: 5%;
@@ -155,27 +173,27 @@
     display: flex;
   }
   :root.menu-open .bottom-header__nav-item__wrapper {
-    position: inherit;
+    position: initial;
   }
   :root.menu-open .bottom-header__nav-item__list {
     font-weight: 100;
     box-shadow: none;
   }
   .bottom-header__account__menu-wrapper {
-    display: inherit;
+    display: initial;
   }
   :root.menu-open .bottom-header__account__menu-wrapper {
-    position: absolute;
+    position: fixed;
     top: 5vw;
     right: 5vw;
-    height: 3rem;
+    height: 4rem;
     z-index: 2;
   }
 }
 @media screen and (max-width: 37rem) {
   .top-header {
-    display: none;
-    position: absolute;
+    display: flex;
+    position: fixed;
     inset: auto 0 0 0;
     z-index: 2;
     justify-content: center;
@@ -185,14 +203,11 @@
   .top-header__klarna {
     display: none;
   }
-  :root.menu-open .top-header {
-    display: flex;
+  :root:not(.menu-open) .top-header {
+    display: none;
   }
   .bottom-header {
     flex-direction: column;
     gap: 2rem;
-  }
-  :root.menu-open .bottom-header__nav {
-    inset: 0;
   }
 }
