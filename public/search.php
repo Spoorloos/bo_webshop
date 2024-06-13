@@ -6,6 +6,6 @@
 </head>
 <body>
     <?php include 'components/header.php' ?>
-    <h1>Search page</h1>
+    <?php include 'components/pages/search_page.php' ?>
 </body>
 </html>

@@ -6,6 +6,6 @@
 </head>
 <body>
     <?php include 'components/header.php' ?>
-    <?php include 'components/main_page.php' ?>
+    <?php include 'components/pages/main_page.php' ?>
 </body>
 </html>
