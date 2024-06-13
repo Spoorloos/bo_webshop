@@ -25,9 +25,9 @@ services:
   mariadb:
     image: mariadb:latest
     environment:
-      MYSQL_DATABASE: m3prog_db
-      MYSQL_USER: m3prog_user
-      MYSQL_PASSWORD: m3prog_pass
+      MYSQL_DATABASE: webshop_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: verysecurepassword
       MYSQL_ROOT_PASSWORD: R00tp@ss
     ports:
       - 3308:3306

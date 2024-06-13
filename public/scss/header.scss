@@ -63,7 +63,7 @@ header {
     align-items: center;
     background-color: var(--header-background);
     color: var(--text-color);
-    height: 7rem;
+    min-height: 7rem;
 
     &__logo-wrapper, &__account {
         flex: 1 1 0;
@@ -90,6 +90,7 @@ header {
             font-size: inherit;
             cursor: pointer;
             display: flex;
+            align-items: center;
             white-space: nowrap;
 
             &__arrow {

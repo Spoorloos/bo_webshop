@@ -7,7 +7,5 @@
 <link rel="stylesheet" href="scss/styles.css">
 <link rel="stylesheet" href="scss/header.css">
 <link rel="stylesheet" href="scss/main_page.css">
-<link rel="preload" href="assets/close.svg" as="image">
-<link rel="preload" href="assets/chevron_arrow.svg" as="image">
 <!-- Scripts -->
 <script src="js/script.js" defer></script>
