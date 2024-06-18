@@ -64,6 +64,7 @@ header {
     background-color: var(--header-background);
     color: var(--text-color);
     min-height: 7rem;
+    z-index: 1;
 
     &__logo-wrapper, &__account {
         flex: 1 1 0;
@@ -207,9 +208,9 @@ header {
 
         :root.menu-open & {
             position: fixed;
-            top: 5vw;
-            right: 5vw;
-            height: 4rem;
+            top: 3vw;
+            right: 3vw;
+            height: 6rem;
             z-index: 2;
         }
     }

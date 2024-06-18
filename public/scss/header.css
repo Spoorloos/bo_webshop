@@ -61,6 +61,7 @@ header {
   background-color: var(--header-background);
   color: var(--text-color);
   min-height: 7rem;
+  z-index: 1;
 }
 .bottom-header__logo-wrapper, .bottom-header__account {
   flex: 1 1 0;
@@ -185,9 +186,9 @@ header {
   }
   :root.menu-open .bottom-header__account__menu-wrapper {
     position: fixed;
-    top: 5vw;
-    right: 5vw;
-    height: 4rem;
+    top: 3vw;
+    right: 3vw;
+    height: 6rem;
     z-index: 2;
   }
 }

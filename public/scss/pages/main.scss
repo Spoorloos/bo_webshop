@@ -1,0 +1,84 @@
+.hero-wrapper {
+    height: calc(100vh - 11rem);
+    background-image: url('../../assets/hero_image.webp');
+    background-position: center;
+    background-size: cover;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--global-spacing);
+    padding: var(--global-spacing);
+
+    &__sales {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--global-spacing);
+
+        &__title {
+            font-weight: 100;
+            font-size: 3.5rem;
+        }
+    }
+}
+
+.product-card {
+    --card-spacing: calc(var(--global-spacing) / 2);
+    width: clamp(20rem, 100%, 35rem);
+    backdrop-filter: invert(5%);
+    transition: backdrop-filter 0.2s;
+
+    &__wrapper {
+        padding: var(--card-spacing);
+        display: flex;
+        flex-direction: column;
+        gap: var(--card-spacing);
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 5/3;
+        object-fit: cover;
+        object-position: center; 
+    }
+
+    &__bottom-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &__purchase {
+            border: none;
+            background: none;
+            backdrop-filter: invert(10%);
+            padding: 0.5rem 1rem;
+            transition: backdrop-filter 0.2s;
+            cursor: pointer;
+
+            :root.darkmode & > img {
+                filter: invert(100%);
+            }
+
+            &:hover {
+                backdrop-filter: invert(20%);
+            }
+        }
+
+        &__name {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        &__price {
+            font-weight: 100;
+            font-size: 2rem;
+        }
+    }
+
+    &:hover {
+        backdrop-filter: invert(10%);
+    }
+}

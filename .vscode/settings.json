@@ -1,5 +1,5 @@
 {
     "files.exclude": {
-        "public/scss/*.css": true
+        "public/scss/**/*.css": true
     }
 }

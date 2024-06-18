@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Webshop - Search</title>
-    <?php include 'components/base_header.php' ?>
+    <title>Mick's Webshop - Search</title>
+    <?php require 'components/base_head.php' ?>
 </head>
 <body>
     <?php include 'components/header.php' ?>
-    <?php include 'components/pages/search_page.php' ?>
+    <main>
+        <h1>Search Page</h1>
+    </main>
 </body>
 </html>

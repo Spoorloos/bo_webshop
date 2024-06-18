@@ -1,3 +1,6 @@
+<?php
+    include_once 'components/nav_item.php';
+?>
 <header>
     <div class="top-header">
         <div class="top-header__klarna">
@@ -13,17 +16,14 @@
     </div>
     <div class="bottom-header">
         <a class="bottom-header__logo-wrapper" href="./">
-            <img class="bottom-header__logo" src="assets/logo.svg" alt="logo">
+            <img class="bottom-header__logo" src="assets/logo.svg" alt="webshop logo">
         </a>
         <nav class="bottom-header__nav">
-            <?php
-                $item_name = 'Lorem, ipsum.';
-                $item_elements = [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ];
-
-                for ($i = 0; $i < 5; $i++) {
-                    include 'components/nav_item.php';
-                }
-            ?>
+            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
         </nav>
         <div class="bottom-header__account">
             <a href="#"><img src="assets/user.svg" alt="account"></a>
