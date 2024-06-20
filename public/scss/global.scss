@@ -5,11 +5,11 @@
     --header-background: #FFF;
     --border-color: #DDD;
     --image-filter: none;
-    --global-spacing: 4rem;
+    --global-spacing: max(2rem, 2vw);
 }
 
 :root.darkmode {
-    --background-color: #181818;
+    --background-color: #1d1d1d;
     --text-color: #FFF;
     --header-background: #121212;
     --border-color: #888;
@@ -37,4 +37,64 @@ body {
 a {
     color: inherit;
     text-decoration: inherit;
+}
+
+// Classes
+.product-card {
+    width: 30rem;
+    background: var(--header-background);
+
+    &__wrapper {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    &__image {
+        width: 100%;
+        aspect-ratio: 5/3;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.2s;
+    }
+
+    &:hover &__image {
+        transform: scale(1.05);
+    }
+
+    &__bottom-row {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        &__name {
+            flex: 1;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        &__price {
+            font-weight: 100;
+            font-size: 2rem;
+        }
+
+        &__purchase {
+            border: none;
+            background: none;
+            backdrop-filter: invert(5%);
+            padding: 0.5rem 1rem;
+            transition: backdrop-filter 0.2s;
+            cursor: pointer;
+
+            :root.darkmode & > img {
+                filter: invert(100%);
+            }
+
+            &:hover {
+                backdrop-filter: invert(10%);
+            }
+        }
+    }
 }

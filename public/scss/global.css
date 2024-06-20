@@ -4,11 +4,11 @@
   --header-background: #FFF;
   --border-color: #DDD;
   --image-filter: none;
-  --global-spacing: 4rem;
+  --global-spacing: max(2rem, 2vw);
 }
 
 :root.darkmode {
-  --background-color: #181818;
+  --background-color: #1d1d1d;
   --text-color: #FFF;
   --header-background: #121212;
   --border-color: #888;
@@ -35,4 +35,60 @@ body {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.product-card {
+  width: 30rem;
+  background: var(--header-background);
+}
+.product-card__wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.product-card__image {
+  width: 100%;
+  aspect-ratio: 5/3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: transform 0.2s;
+}
+.product-card:hover .product-card__image {
+  transform: scale(1.05);
+}
+.product-card__bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.product-card__bottom-row__name {
+  flex: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.product-card__bottom-row__price {
+  font-weight: 100;
+  font-size: 2rem;
+}
+.product-card__bottom-row__purchase {
+  border: none;
+  background: none;
+  -webkit-backdrop-filter: invert(5%);
+          backdrop-filter: invert(5%);
+  padding: 0.5rem 1rem;
+  transition: -webkit-backdrop-filter 0.2s;
+  transition: backdrop-filter 0.2s;
+  transition: backdrop-filter 0.2s, -webkit-backdrop-filter 0.2s;
+  cursor: pointer;
+}
+:root.darkmode .product-card__bottom-row__purchase > img {
+  filter: invert(100%);
+}
+.product-card__bottom-row__purchase:hover {
+  -webkit-backdrop-filter: invert(10%);
+          backdrop-filter: invert(10%);
 }

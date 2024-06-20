@@ -10,10 +10,10 @@
 <link rel="icon" href="#">
 <link rel="stylesheet" href="scss/global.css">
 <link rel="stylesheet" href="scss/header.css">
-<link rel="stylesheet" href="scss/pages/main.css">
 
 <!-- Scripts -->
-<script src="js/script.js" defer></script>
+<script src="js/header.js" defer></script>
+<script src="js/global.js" defer></script>
 <script>
     if (localStorage.getItem('darkmode') === 'true') {
         document.documentElement.classList.add('darkmode');

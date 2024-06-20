@@ -7,6 +7,7 @@
 <head>
     <title>Mick's Webshop - Cheap laptops & phones</title>
     <? require 'components/base_head.php' ?>
+    <link rel="stylesheet" href="scss/pages/main.css">
 </head>
 <body>
     <? include 'components/header.php' ?>
@@ -22,7 +23,7 @@
 
                 shuffle($products);
 
-                for ($i = 0; $i < min(3, count($products)); $i++) {
+                for ($i = 0; $i < min(4, count($products)); $i++) {
                     render_product_card($products[$i]);
                 }
             ?>

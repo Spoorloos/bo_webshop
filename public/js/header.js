@@ -17,8 +17,3 @@ menuToggle.addEventListener('click', () => {
 if (localStorage.getItem('darkmode') === 'true') {
     darkmodeToggle.innerText = 'Lightmode';
 }
-
-function addToCart(event, id) {
-    event.preventDefault();
-    console.log(id);
-}
