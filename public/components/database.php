@@ -4,7 +4,7 @@ class DatabaseConnection {
     public $connection;
 
     function __construct() {
-        $env = parse_ini_file('../.env');
+        $env = parse_ini_file('.env');
 
         $this->connection = new mysqli(
             $env['DB_HOST'],

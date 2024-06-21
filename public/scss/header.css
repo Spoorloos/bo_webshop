@@ -116,7 +116,7 @@ header {
   transition: padding-block 0.3s;
 }
 :root.darkmode .bottom-header__nav-item__list {
-  box-shadow: 0 0 0 1px #444;
+  box-shadow: 0 0 0 1px var(--border-color);
 }
 .bottom-header__nav-item__list > li > a {
   display: block;

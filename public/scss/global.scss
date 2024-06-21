@@ -12,7 +12,7 @@
     --background-color: #1d1d1d;
     --text-color: #FFF;
     --header-background: #121212;
-    --border-color: #888;
+    --border-color: #444;
     --image-filter: invert(100%);
 }
 
@@ -41,8 +41,14 @@ a {
 
 // Classes
 .product-card {
-    width: 30rem;
+    height: fit-content;
     background: var(--header-background);
+    box-shadow: 0 0 0.5rem 0.1rem #6663;
+    opacity: 0;
+
+    &--is-visible {
+        animation: card-popup 0.5s both;
+    }
 
     &__wrapper {
         padding: 2rem;
@@ -51,7 +57,21 @@ a {
         gap: 2rem;
     }
 
+    &__image-wrapper {
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            box-shadow: inset 0 0 0 0.5rem #FFF3;
+        }
+    }
+
     &__image {
+        display: block;
         width: 100%;
         aspect-ratio: 5/3;
         object-fit: cover;
@@ -60,7 +80,7 @@ a {
     }
 
     &:hover &__image {
-        transform: scale(1.05);
+        transform: scale(1.1);
     }
 
     &__bottom-row {
@@ -96,5 +116,42 @@ a {
                 backdrop-filter: invert(10%);
             }
         }
+    }
+
+    :root.darkmode & {
+        box-shadow: 0 0 0 1px var(--border-color);
+    }
+}
+
+.black-button {
+    border: none;
+    background: black;
+    color: white;
+    padding: 1.2rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 0 0.5rem 0.1rem #6663;
+
+    &:hover {
+        background: #444;
+    }
+
+    :root.darkmode & {
+        box-shadow: none;
+    }
+}
+
+// Animations
+@keyframes card-popup {
+    0% {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: 0;
     }
 }

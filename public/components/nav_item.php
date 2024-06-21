@@ -3,7 +3,7 @@
 function render_nav_item($item_name, $item_elements) { ?>
     <div class="bottom-header__nav-item" tabindex="0">
         <h2 class="bottom-header__nav-item__name">
-            <?= $item_name ?>
+            <?php echo $item_name ?>
             <img
                 class="bottom-header__nav-item__name__arrow"
                 src="assets/chevron_arrow.svg"
@@ -13,7 +13,7 @@ function render_nav_item($item_name, $item_elements) { ?>
         <div class="bottom-header__nav-item__wrapper">
             <ul class="bottom-header__nav-item__list">
                 <?php foreach ($item_elements as $name => $address): ?>
-                    <li><a href="<?= $address ?>"><?= $name ?></a></li>
+                    <li><a href="<?php echo $address ?>"><?php echo $name ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>

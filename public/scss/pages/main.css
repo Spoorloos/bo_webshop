@@ -12,9 +12,8 @@
   padding: var(--global-spacing);
 }
 .main__sales {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, max-content));
   gap: var(--global-spacing);
 }
 .main__sales__title {

@@ -28,6 +28,10 @@ main {
         &:hover {
             transform: scale(1.01);
         }
+
+        :root.darkmode & {
+            box-shadow: 0 0 0 1px var(--border-color);
+        }
     }
 
     &__info {
@@ -70,21 +74,7 @@ main {
         }
 
         &__addtocart {
-            border: none;
-            background: black;
-            color: white;
-            padding: 1.2rem;
             width: 50%;
-            font-weight: 100;
-            text-transform: uppercase;
-            letter-spacing: 0.15rem;
-            cursor: pointer;
-            transition: background 0.2s;
-            box-shadow: 0 0 0.5rem 0.1rem #0003;
-
-            &:hover {
-                background: #444;
-            }
         }
 
         &__dtext {
@@ -108,7 +98,8 @@ main {
         height: 90%;
         overflow: visible;
         outline: none;
-
+        box-shadow: 0 0 0.5rem 0.1rem #6663;
+        
         &__image {
             width: 100%;
             height: 100%;
@@ -128,6 +119,7 @@ main {
             border-radius: 50%;
             cursor: pointer;
             transition: filter 0.2s;
+            box-shadow: 0 0 0.5rem 0.1rem #6663;
 
             & > img {
                 width: 100%;
@@ -139,7 +131,7 @@ main {
             }
 
             :root.darkmode & {
-                border: thin solid var(--border-color);
+                box-shadow: 0 0 0 1px var(--border-color);
             }
             
             &:hover {
@@ -152,7 +144,7 @@ main {
         }
 
         :root.darkmode & {
-            border: thin solid var(--border-color);
+            box-shadow: 0 0 0 1px var(--border-color);
         }
     }
 }
@@ -179,7 +171,7 @@ main {
         box-shadow: 0 0 0.5rem 0.1rem #ddd5;
 
         :root.darkmode & {
-            box-shadow: 0 0 0.5rem 0.1rem #0003;
+            box-shadow: 0 0 0 1px var(--border-color);
         }
 
         &__info {
@@ -189,6 +181,7 @@ main {
         }
         
         &__pfp {
+            display: block;
             width: 10rem;
             aspect-ratio: 1/1;
             border-radius: 50%;

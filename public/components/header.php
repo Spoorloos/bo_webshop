@@ -19,11 +19,11 @@
             <img class="bottom-header__logo" src="assets/logo.svg" alt="webshop logo">
         </a>
         <nav class="bottom-header__nav">
-            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
-            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
-            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
-            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
-            <? render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <?php render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <?php render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <?php render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <?php render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
+            <?php render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
         </nav>
         <div class="bottom-header__account">
             <a href="#"><img src="assets/user.svg" alt="account"></a>
