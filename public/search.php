@@ -16,7 +16,7 @@
     <?php include 'components/header.php' ?>
     <main>
         <form class="search" method="GET" autocomplete="off">
-            <input class="search__bar" type="text" name="query" placeholder="Search for products" value="<?php echo $query ?>">
+            <input class="search__bar" type="text" name="query" placeholder="Search for products" value="<?php echo $query ?>" size="10">
             <input class="search__search black-button" type="submit" value="Search">
         </form>
         <div class="main">

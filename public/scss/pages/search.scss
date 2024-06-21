@@ -50,25 +50,24 @@ main {
         :root.darkmode & {
             box-shadow: 0 0 0 1px var(--border-color);
         }
+
+        @media screen and (max-width: 50rem) {
+            flex-grow: 2;
+        }
     }
 
     &__results {
         flex: 3 0 4rem;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(25rem, max-content));
+        grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
         gap: var(--global-spacing);
+        height: fit-content;
 
         &:empty::after {
             content: 'No results found';
             font-size: 3rem;
             font-weight: 100;
             color: #666;
-        }
-    }
-
-    @media screen and (max-width: 50rem) {
-        &__filter, &__results {
-            flex-grow: 1;
         }
     }
 

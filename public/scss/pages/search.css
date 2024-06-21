@@ -47,22 +47,24 @@ main {
 :root.darkmode .main__filter {
   box-shadow: 0 0 0 1px var(--border-color);
 }
+@media screen and (max-width: 50rem) {
+  .main__filter {
+    flex-grow: 2;
+  }
+}
 .main__results {
   flex: 3 0 4rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(25rem, max-content));
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   gap: var(--global-spacing);
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .main__results:empty::after {
   content: "No results found";
   font-size: 3rem;
   font-weight: 100;
   color: #666;
-}
-@media screen and (max-width: 50rem) {
-  .main__filter, .main__results {
-    flex-grow: 1;
-  }
 }
 @media screen and (max-width: 37rem) {
   .main {
