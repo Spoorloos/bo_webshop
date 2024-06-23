@@ -65,9 +65,14 @@ header {
 }
 .bottom-header__logo-wrapper, .bottom-header__account {
   flex: 1 1 0;
+  height: 100%;
 }
 .bottom-header__logo-wrapper img, .bottom-header__account img {
   filter: var(--image-filter);
+}
+.bottom-header__logo-wrapper {
+  display: flex;
+  align-items: center;
 }
 .bottom-header__logo {
   height: 2rem;

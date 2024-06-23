@@ -68,9 +68,16 @@ header {
 
     &__logo-wrapper, &__account {
         flex: 1 1 0;
+        height: 100%;
+
         & img {
             filter: var(--image-filter);
         }
+    }
+
+    &__logo-wrapper {
+        display: flex;
+        align-items: center;
     }
 
     &__logo {

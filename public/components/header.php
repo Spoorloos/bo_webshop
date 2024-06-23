@@ -26,7 +26,7 @@
             <?php render_nav_item('Lorem, ipsum.', [ 'abc' => 'https://youtube.com', 'def' => 'https://google.com' ]) ?>
         </nav>
         <div class="bottom-header__account">
-            <a href="#"><img src="assets/user.svg" alt="account"></a>
+            <a href="login.php"><img src="assets/user.svg" alt="account"></a>
             <a href="search.php"><img src="assets/search.svg" alt="search"></a>
             <a href="#"><img src="assets/shopping_bag.svg" alt="shopping cart"></a>
             <div class="bottom-header__account__menu-wrapper">

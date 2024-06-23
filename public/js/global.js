@@ -9,7 +9,7 @@ function updateCards() {
             setTimeout(() => {
                 card.classList.add('product-card--is-visible');
                 amountInQueue--;
-            },  amountInQueue++ * 200);
+            },  amountInQueue++ * 100);
 
             // Remove it from the list
             cards.delete(card);

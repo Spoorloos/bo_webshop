@@ -1,0 +1,48 @@
+.main {
+  height: calc(100vh - 22rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: var(--global-spacing);
+}
+.main__login {
+  width: min(100%, 50rem);
+  background: var(--header-background);
+  padding: var(--global-spacing);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: 100;
+}
+.main__login > input {
+  padding: 1.2rem;
+  border-radius: 0;
+  border: thin solid var(--border-color);
+  outline: none;
+  background: none;
+  color: var(--text-color);
+}
+.main__login__forgot-password {
+  font-size: 0.75em;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+  color: #05F;
+}
+:root.darkmode .main__login__forgot-password {
+  color: #4e89ff;
+}
+.main__login__separator {
+  border: none;
+  height: 0.1rem;
+  background: #555;
+}
+
+.required {
+  color: red;
+}
+:root.darkmode .required {
+  color: #ff4e4e;
+}
