@@ -21,12 +21,12 @@
 <html lang="en">
 <head>
     <title>Mick's Webshop - <?php echo $product['name'] ?></title>
-    <?php require 'components/base_head.php' ?>
+    <?php require_once 'components/base_head.php' ?>
     <link rel="stylesheet" href="scss/pages/product.css">
     <script src="js/product.js" defer></script>
 </head>
 <body>
-    <?php include 'components/header.php' ?>
+    <?php include_once 'components/header.php' ?>
     <main>
         <article class="product">
             <img class="product__image" src="<?php echo $product['image'] ?>" alt="product image" onclick="openModal()">

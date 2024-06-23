@@ -23,6 +23,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -35,6 +36,10 @@ body {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+img {
+  display: block;
 }
 
 .product-card {
@@ -65,7 +70,6 @@ a {
   box-shadow: inset 0 0 0 0.5rem rgba(255, 255, 255, 0.2);
 }
 .product-card__image {
-  display: block;
   width: 100%;
   aspect-ratio: 5/3;
   -o-object-fit: cover;
@@ -124,13 +128,15 @@ a {
   letter-spacing: 0.15rem;
   cursor: pointer;
   transition: background 0.2s;
-  box-shadow: 0 0 0.5rem 0.1rem rgba(102, 102, 102, 0.2);
+  box-shadow: 0 0 0.5rem 0.1rem rgba(102, 102, 102, 0.6666666667);
+  border-radius: 0;
 }
 .black-button:hover {
-  background: #444;
+  background: #444 !important;
 }
 :root.darkmode .black-button {
-  box-shadow: none;
+  box-shadow: 0 0 0 1px var(--border-color);
+  background: var(--header-background);
 }
 
 @keyframes card-popup {
@@ -141,5 +147,10 @@ a {
   100% {
     opacity: 1;
     transform: 0;
+  }
+}
+@keyframes bounce {
+  50% {
+    transform: translateY(0.5rem);
   }
 }

@@ -1,9 +1,5 @@
 main {
     padding: var(--global-spacing);
-    display: flex;
-    flex-direction: column;
-    gap: var(--global-spacing);
-    min-height: calc(100vh - 11rem);
 }
 
 .search {
@@ -31,37 +27,32 @@ main {
 
     &__search {
         flex: 1;
-        font-weight: 100;
-        border-radius: 0;
     }
 }
 
 .main {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--global-spacing);
-    flex: 1;
-
+    margin-top: var(--global-spacing);
+    
     &__filter {
-        flex: 1;
+        grid-column: 1;
+        padding: 2rem;
+        height: fit-content;
         background-color: var(--header-background);
         box-shadow: 0 0 0.5rem 0.1rem #6663;
-        padding: 2rem;
 
         :root.darkmode & {
             box-shadow: 0 0 0 1px var(--border-color);
         }
-
-        @media screen and (max-width: 50rem) {
-            flex-grow: 2;
-        }
     }
 
     &__results {
-        flex: 3 0 4rem;
+        grid-column: 2 / -1;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
         gap: var(--global-spacing);
-        height: fit-content;
 
         &:empty::after {
             content: 'No results found';
@@ -71,7 +62,17 @@ main {
         }
     }
 
-    @media screen and (max-width: 37rem) {
-        flex-direction: column;
+    @media screen and (max-width: 70rem) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 47rem) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (max-width: 40rem) {
+        grid-template-columns: 1fr;
+
+        &__results { grid-column: 1; }
     }
 }

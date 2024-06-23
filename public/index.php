@@ -6,26 +6,33 @@
 <html lang="en">
 <head>
     <title>Mick's Webshop - Cheap laptops & phones</title>
-    <?php require 'components/base_head.php' ?>
+    <?php require_once 'components/base_head.php' ?>
     <link rel="stylesheet" href="scss/pages/main.css">
 </head>
 <body>
-    <?php include 'components/header.php' ?>
-    <div class="hero-wrapper"></div>
+    <?php include_once 'components/header.php' ?>
     <main class="main">
-        <h2 class="main__sales__title">Products On Sale:</h2>
-        <section class="main__sales"><?php
-            include_once 'components/product_card.php';
+        <div class="main__hero-wrapper">
+            <div class="main__hero-wrapper__content"></div>
+            <a class="main__hero-wrapper__scroll-btn" href="#sales-section">
+                <img src="assets/chevron_arrow.svg" alt="arrow">
+            </a>
+        </div>
+        <section class="main__sales" id="sales-section">
+            <h2 class="main__sales__title">Products On Sale:</h2>
+            <div class="main__sales__products"><?php
+                include_once 'components/product_card.php';
 
-            $result = $connection->fetch('SELECT * FROM product WHERE onsale = 1');
-            $products = $result->fetch_all(MYSQLI_ASSOC);
+                $result = $connection->fetch('SELECT * FROM product WHERE onsale = 1');
+                $products = $result->fetch_all(MYSQLI_ASSOC);
 
-            shuffle($products);
+                shuffle($products);
 
-            for ($i = 0; $i < min(4, count($products)); $i++) {
-                render_product_card($products[$i], $i);
-            }
-        ?></section>
+                for ($i = 0; $i < min(4, count($products)); $i++) {
+                    render_product_card($products[$i]);
+                }
+            ?></div>
+        </section>
     </main>
 </body>
 </html>

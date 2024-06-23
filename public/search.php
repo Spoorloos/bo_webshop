@@ -9,25 +9,25 @@
 <html lang="en">
 <head>
     <title>Mick's Webshop - Search</title>
-    <?php require 'components/base_head.php' ?>
+    <?php require_once 'components/base_head.php' ?>
     <link rel="stylesheet" href="scss/pages/search.css">
 </head>
 <body>
-    <?php include 'components/header.php' ?>
+    <?php include_once 'components/header.php' ?>
     <main>
         <form class="search" method="GET" autocomplete="off">
             <input class="search__bar" type="text" name="query" placeholder="Search for products" value="<?php echo $query ?>" size="10">
             <input class="search__search black-button" type="submit" value="Search">
         </form>
         <div class="main">
-            <aside class="main__filter">
-                <h1>Test</h1>
-            </aside>
+            <form class="main__filter">
+     
+            </form>
             <section class="main__results"><?php
-                require_once 'components/product_card.php';
+                include_once 'components/product_card.php';
                 
-                foreach ($results->fetch_all(MYSQLI_ASSOC) as $index => $product) {
-                    render_product_card($product, $index);
+                foreach ($results->fetch_all(MYSQLI_ASSOC) as $product) {
+                    render_product_card($product);
                 }
             ?></section>
         </div>

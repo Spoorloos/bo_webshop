@@ -159,7 +159,6 @@ main {
   justify-content: space-between;
 }
 .reviews__review__pfp {
-  display: block;
   width: 10rem;
   aspect-ratio: 1/1;
   border-radius: 50%;

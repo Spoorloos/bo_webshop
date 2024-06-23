@@ -63,7 +63,7 @@ header {
     align-items: center;
     background-color: var(--header-background);
     color: var(--text-color);
-    min-height: 7rem;
+    height: 7rem;
     z-index: 1;
 
     &__logo-wrapper, &__account {
@@ -162,9 +162,10 @@ header {
         align-items: stretch;
         gap: 2rem;
 
-        & > :is(a, div) {
+        & > a, & > div {
             transition: transform 0.2s;
             cursor: pointer;
+
             &:hover { transform: scale(1.1); }
             & > img { height: 100%; }
         }
@@ -236,7 +237,8 @@ header {
     }
 
     .bottom-header {
+        height: 11rem;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1rem;
     }
 }

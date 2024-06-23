@@ -1,7 +1,7 @@
 <?php
 
-function render_product_card($product, $index) { ?>
-    <article class="product-card" style="animation-delay: <?php echo $index * 0.1 ?>s">
+function render_product_card($product) { ?>
+    <article class="product-card">
         <a class="product-card__wrapper" href="product.php?id=<?php echo $product['id'] ?>">
             <div class="product-card__image-wrapper">
                 <img class="product-card__image" src="<?php echo $product['image'] ?>" alt="product image">

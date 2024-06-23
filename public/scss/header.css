@@ -60,7 +60,7 @@ header {
   align-items: center;
   background-color: var(--header-background);
   color: var(--text-color);
-  min-height: 7rem;
+  height: 7rem;
   z-index: 1;
 }
 .bottom-header__logo-wrapper, .bottom-header__account {
@@ -144,14 +144,14 @@ header {
   align-items: stretch;
   gap: 2rem;
 }
-.bottom-header__account > :is(a, div) {
+.bottom-header__account > a, .bottom-header__account > div {
   transition: transform 0.2s;
   cursor: pointer;
 }
-.bottom-header__account > :is(a, div):hover {
+.bottom-header__account > a:hover, .bottom-header__account > div:hover {
   transform: scale(1.1);
 }
-.bottom-header__account > :is(a, div) > img {
+.bottom-header__account > a > img, .bottom-header__account > div > img {
   height: 100%;
 }
 .bottom-header__account__menu-wrapper {
@@ -209,7 +209,8 @@ header {
     display: none;
   }
   .bottom-header {
+    height: 11rem;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   }
 }
