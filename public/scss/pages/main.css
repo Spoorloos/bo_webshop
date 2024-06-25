@@ -10,19 +10,23 @@
 }
 .main__hero-wrapper__content {
   color: white;
-  font-weight: bold;
-  font-size: min(8vw, 4rem);
   max-width: 60rem;
   height: 100%;
   margin: 10% 0 0 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.main__hero-wrapper__content__hero-text {
+  font-weight: bold;
+  font-size: min(8vw, 4rem);
 }
 .main__hero-wrapper__content__show-now {
   background: #FFF;
   color: black;
   box-shadow: none;
   font-weight: 200;
-  font-size: 1.6rem;
-  height: 2rem;
   padding: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 0.15rem;

@@ -14,7 +14,7 @@
     <main class="main">
         <div class="main__hero-wrapper">
             <div class="main__hero-wrapper__content">
-                <p>Discover the latest Laptops and Phones: Quality, Innovation, and Great Prices await you.</p>
+                <p class="main__hero-wrapper__content__hero-text">Discover the latest Laptops and Phones: Quality, Innovation, and Great Prices await you.</p>
                 <a class="main__hero-wrapper__content__show-now" href="search.php">Shop Now</a>
             </div>
             <a class="main__hero-wrapper__scroll-btn" href="#sales-section">
