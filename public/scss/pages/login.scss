@@ -28,13 +28,7 @@
 
         &__forgot-password {
             font-size: 0.75em;
-            text-decoration: underline;
-            text-underline-offset: 0.2rem;
-            color: #05F;
-
-            :root.darkmode & {
-                color: #4e89ff;
-            }
+            color: #4e89ff;
         }
 
         &__separator {
