@@ -14,8 +14,8 @@
     $product = $result->fetch_assoc();
 
     // Fetch reviews
-    $result = $connection->fetch('SELECT * FROM review WHERE productid = ?', 'i', $product['id']);
-    $reviews = $result->fetch_all(MYSQLI_ASSOC);
+    $results = $connection->fetch('SELECT * FROM review WHERE productid = ?', 'i', $product['id']);
+    $reviews = $results->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">

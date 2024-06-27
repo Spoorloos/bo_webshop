@@ -1,5 +1,7 @@
 <?php
+    include_once 'components/product_card.php';
     require_once 'components/database.php';
+
     $connection = new DatabaseConnection();
 ?>
 <!DOCTYPE html>
@@ -25,12 +27,10 @@
             <h2 class="main__sales__title">Products On Sale:</h2>
             <div class="main__sales__products"><?php
                 // Fetch 4 random on-sale products from the database
-                $result = $connection->fetch('SELECT * FROM product WHERE onsale = 1 ORDER BY RAND() LIMIT 4');
-                $products = $result->fetch_all(MYSQLI_ASSOC);
+                $results = $connection->fetch('SELECT * FROM product WHERE onsale = 1 ORDER BY RAND() LIMIT 4');
+                $products = $results->fetch_all(MYSQLI_ASSOC);
 
                 // Render the product cards
-                include_once 'components/product_card.php';
-
                 foreach ($products as $product) {
                     render_product_card($product);
                 }
@@ -41,31 +41,30 @@
             <div class="main__recents__products"><?php
                 // Get the recently visited products
                 $recents = json_decode($_COOKIE['recents']);
-                if (gettype($recents) !== 'array' || count($recents) <= 0) {
-                    return;
-                }
-                
-                // Construct the query
-                $wheres = ''; $binds = '';
-                foreach ($recents as $index => $id) {
-                    if ($index > 0) $wheres .= ' OR ';
-                    $wheres .= 'id = ?';
-                    $binds .= 'i';
-                }
-                $query = "SELECT * FROM product WHERE $wheres";
+                if (gettype($recents) === 'array' && count($recents) > 0) {
+                    // Construct the query
+                    $wheres = ''; $binds = '';
+                    foreach ($recents as $index => $id) {
+                        if ($index > 0) $wheres .= ' OR ';
+                        $wheres .= 'id = ?';
+                        $binds .= 'i';
+                    }
+                    $query = "SELECT * FROM product WHERE $wheres";
 
-                // Fetch them from the database
-                $products = [];
-                $results = $connection->fetch($query, $binds, ...$recents)->fetch_all(MYSQLI_ASSOC);
-                foreach ($results as $product) {
-                    $products[$product['id']] = $product;
-                }
+                    // Fetch them from the database
+                    $products = [];
+                    $results = $connection
+                        ->fetch($query, $binds, ...$recents)
+                        ->fetch_all(MYSQLI_ASSOC);
 
-                // Render the product cards
-                include_once 'components/product_card.php';
+                    foreach ($results as $product) {
+                        $products[$product['id']] = $product;
+                    }
 
-                foreach ($recents as $id) {
-                    render_product_card($products[$id]);
+                    // Render the product cards
+                    foreach ($recents as $id) {
+                        render_product_card($products[$id]);
+                    }
                 }
             ?></div>
         </section>
