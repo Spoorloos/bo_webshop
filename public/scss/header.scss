@@ -42,7 +42,7 @@ header {
 
         &:hover {
             text-underline-offset: 0.5rem;
-            text-decoration-color: initial;
+            text-decoration-color: unset;
         }
     }
 
@@ -202,7 +202,7 @@ header {
         }
 
         :root.menu-open &-item__wrapper {
-            position: initial;
+            position: unset;
         }
 
         :root.menu-open &-item__list {
@@ -212,12 +212,13 @@ header {
     }
 
     .bottom-header__account__menu-wrapper {
-        display: initial;
+        display: block;
 
         :root.menu-open & {
             position: fixed;
             top: 3vw;
             right: 3vw;
+            width: 6rem;
             height: 6rem;
             z-index: 2;
         }

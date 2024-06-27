@@ -1,19 +1,23 @@
 .main {
     &__hero-wrapper {
-        height: calc(100svh - 11rem);
+        min-height: calc(100svh - 11rem);
         background-image: url('../../assets/hero_image.webp');
         background-position: center;
         background-size: cover;
-        background-attachment: fixed;
         display: flex;
         flex-direction: column;
-        padding: var(--global-spacing);
+        justify-content: space-between;
+        padding: min(10vw, 10vh);
+        padding-bottom: var(--global-spacing);
+
+        @media screen and (min-width: 37rem) {
+            background-attachment: fixed;
+        }
 
         &__content {
             color: white;
+            width: 100%;
             max-width: 60rem;
-            height: 100%;
-            margin: 10% 0 0 10%;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -21,7 +25,7 @@
 
             &__hero-text {
                 font-weight: bold;
-                font-size: min(8vw, 4rem);
+                font-size: min(8vw, 8vh, 5rem);
             }
 
             &__show-now {
@@ -42,7 +46,6 @@
         }
 
         &__scroll-btn {
-            margin-top: auto;
             align-self: center;
             border: none;
             background: white;
@@ -72,6 +75,27 @@
             grid-template-columns: repeat(auto-fill, minmax(30rem, max-content));
             gap: var(--global-spacing);
             margin-top: var(--global-spacing);
+        }
+    }
+
+    &__recents {
+        padding: var(--global-spacing);
+        padding-top: 0;
+
+        &__title {
+            font-weight: 100;
+            font-size: 3.5rem;
+        }
+        
+        &__products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(30rem, max-content));
+            gap: var(--global-spacing);
+            margin-top: var(--global-spacing);
+        }
+
+        &:has(> &__products:empty) {
+            display: none;
         }
     }
 }

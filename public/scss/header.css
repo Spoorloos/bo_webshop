@@ -42,7 +42,7 @@ header {
 }
 .top-header__nav > *:hover {
   text-underline-offset: 0.5rem;
-  text-decoration-color: initial;
+  text-decoration-color: unset;
 }
 .top-header__nav > button {
   border: none;
@@ -180,19 +180,20 @@ header {
     display: flex;
   }
   :root.menu-open .bottom-header__nav-item__wrapper {
-    position: initial;
+    position: unset;
   }
   :root.menu-open .bottom-header__nav-item__list {
     font-weight: 100;
     box-shadow: none;
   }
   .bottom-header__account__menu-wrapper {
-    display: initial;
+    display: block;
   }
   :root.menu-open .bottom-header__account__menu-wrapper {
     position: fixed;
     top: 3vw;
     right: 3vw;
+    width: 6rem;
     height: 6rem;
     z-index: 2;
   }

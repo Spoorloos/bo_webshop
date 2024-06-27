@@ -93,6 +93,7 @@ main {
             height: 2rem;
             background: none;
             border: thin solid var(--border-color);
+            border-radius: 0;
             position: relative;
 
             &:checked::after {

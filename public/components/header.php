@@ -28,7 +28,7 @@
         <div class="bottom-header__account">
             <a href="login.php"><img src="assets/user.svg" alt="account"></a>
             <a href="search.php"><img src="assets/search.svg" alt="search"></a>
-            <a href="#"><img src="assets/shopping_bag.svg" alt="shopping cart"></a>
+            <a href="shopping_cart.php"><img src="assets/shopping_bag.svg" alt="shopping cart"></a>
             <div class="bottom-header__account__menu-wrapper">
                 <img src="assets/menu.svg" alt="menu">
             </div>

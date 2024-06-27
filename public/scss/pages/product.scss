@@ -192,6 +192,11 @@ main {
             font-weight: 100;
         }
 
+        &__stars {
+            display: flex;
+            justify-content: center;
+        }
+
         &__stars > img {
             height: 2rem;
         }

@@ -11,8 +11,11 @@
 <link rel="stylesheet" href="scss/global.css">
 <link rel="stylesheet" href="scss/header.css">
 <link rel="stylesheet" href="scss/footer.css">
+<link rel="preload" href="assets/close.svg" as="image">
+<link rel="preload" href="assets/chevron_arrow.svg" as="image">
 
 <!-- Scripts -->
+<script src="js/cookie.js"></script>
 <script src="js/global.js" defer></script>
 <script src="js/header.js" defer></script>
 <script>

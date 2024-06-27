@@ -1,0 +1,173 @@
+.main {
+  padding: var(--global-spacing);
+  height: calc(100lvh - 11rem);
+}
+.main__cart {
+  width: 100%;
+  height: 100%;
+  background: var(--header-background);
+  box-shadow: 0 0 0.5rem 0.1rem rgba(102, 102, 102, 0.2);
+  padding: var(--global-spacing);
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 2rem;
+}
+.main__cart__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 0;
+}
+.main__cart__wrapper__title {
+  font-size: 3rem;
+}
+.main__cart__wrapper__products {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+}
+.main__cart__wrapper__products:empty::after {
+  content: "Shopping cart is empty";
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: #666;
+}
+.main__cart__checkout {
+  border-left: thin solid var(--border-color);
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.main__cart__checkout__subtotal, .main__cart__checkout__shipping, .main__cart__checkout__total {
+  display: flex;
+  justify-content: space-between;
+}
+.main__cart__checkout__subtotal, .main__cart__checkout__shipping {
+  font-size: 2rem;
+  font-weight: 200;
+}
+.main__cart__checkout__total {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.main__cart__checkout__checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 60rem) {
+  .main__cart {
+    grid-template-columns: none;
+    grid-template-rows: 4fr 1fr;
+  }
+  .main__cart__checkout {
+    border-left: none;
+    border-top: thin solid var(--border-color);
+    padding-top: 2rem;
+    padding-left: 0;
+  }
+}
+
+.shopping-cart-card {
+  width: 100%;
+  -webkit-backdrop-filter: invert(5%);
+          backdrop-filter: invert(5%);
+  transition: -webkit-backdrop-filter 0.2s;
+  transition: backdrop-filter 0.2s;
+  transition: backdrop-filter 0.2s, -webkit-backdrop-filter 0.2s;
+}
+.shopping-cart-card__wrapper {
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+  padding: 2rem;
+}
+@media screen and (max-width: 42rem) {
+  .shopping-cart-card__wrapper {
+    flex-direction: column;
+  }
+}
+.shopping-cart-card__image-wrapper {
+  margin-inline: auto;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.shopping-cart-card__image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 0.5rem rgba(255, 255, 255, 0.2);
+}
+.shopping-cart-card__image {
+  margin-block: auto;
+  width: 100%;
+  max-width: 30rem;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(102, 102, 102, 0.2);
+}
+.shopping-cart-card__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.shopping-cart-card__content__name-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.shopping-cart-card__content__name {
+  font-size: 3rem;
+}
+.shopping-cart-card__content__price {
+  font-weight: 100;
+  font-size: 2.5rem;
+}
+.shopping-cart-card__content__description {
+  max-width: 40rem;
+  max-height: 8.65rem;
+  overflow: hidden;
+}
+.shopping-cart-card__content__quantity {
+  display: flex;
+  background: var(--header-background);
+  height: -moz-min-content;
+  height: min-content;
+}
+.shopping-cart-card__content__quantity__remove, .shopping-cart-card__content__quantity__value, .shopping-cart-card__content__quantity__add {
+  border: none;
+  background: none;
+  width: 3rem;
+  height: 3rem;
+  font-weight: 100;
+  color: var(--text-color);
+}
+.shopping-cart-card__content__quantity__value {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shopping-cart-card__content__quantity__remove, .shopping-cart-card__content__quantity__add {
+  cursor: pointer;
+  transition: -webkit-backdrop-filter 0.2s;
+  transition: backdrop-filter 0.2s;
+  transition: backdrop-filter 0.2s, -webkit-backdrop-filter 0.2s;
+}
+.shopping-cart-card__content__quantity__remove:hover, .shopping-cart-card__content__quantity__add:hover {
+  -webkit-backdrop-filter: invert(5%);
+          backdrop-filter: invert(5%);
+}
+.shopping-cart-card:hover {
+  -webkit-backdrop-filter: invert(10%);
+          backdrop-filter: invert(10%);
+}

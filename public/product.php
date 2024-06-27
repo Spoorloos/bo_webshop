@@ -41,7 +41,7 @@
                     <?php endif; ?>
                 </strong>
                 <p class="product__info__description"><?php echo $product['description'] ?></p>
-                <button class="product__info__addtocart black-button" type="button">Add To Cart</button>
+                <button class="product__info__addtocart black-button" type="button" onclick="addToCart(event, <?php echo $product['id'] ?>)">Add To Cart</button>
                 <span class="product__info__dtext">Direct leverbaar | Gratis verzending vanaf €30</span>
             </div>
             <dialog class="product__image-modal">
@@ -66,6 +66,12 @@
             </section>
         <?php endif; ?>
     </main>
+    <script>
+        let recents = JSON.parse(Cookie.get('recents')) ?? [];
+        recents.unshift(<?php echo $_GET['id'] ?>);
+        recents.splice(4);
+        Cookie.set('recents', JSON.stringify(recents));
+    </script>
     <?php include_once 'components/footer.php' ?>
 </body>
 </html>
