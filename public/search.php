@@ -1,7 +1,7 @@
 <?php
     require_once 'components/database.php';
-
     $connection = new DatabaseConnection();
+
     // Get the min and max prices
     $prices = $connection->fetch('SELECT min(price) AS lowestprice, max(price) AS highestprice FROM product');
     [ $lowestprice, $highestprice ] = $prices->fetch_array();

@@ -1,0 +1,12 @@
+.footer {
+  -webkit-backdrop-filter: invert(5%);
+          backdrop-filter: invert(5%);
+  padding: var(--global-spacing);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+:root.darkmode .footer > img {
+  filter: invert(100%);
+}
