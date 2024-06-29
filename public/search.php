@@ -3,8 +3,9 @@
     $connection = new DatabaseConnection();
 
     // Get the min and max prices
-    $prices = $connection->fetch('SELECT min(price) AS lowestprice, max(price) AS highestprice FROM product');
-    [ $lowestprice, $highestprice ] = $prices->fetch_array();
+    [ $lowestprice, $highestprice ] = $connection
+        ->fetch('SELECT min(price) AS lowestprice, max(price) AS highestprice FROM product')
+        ->fetch_array();
 
     // Get categories
     $all_catagories = $connection->fetch('SELECT name FROM category')->fetch_all();
