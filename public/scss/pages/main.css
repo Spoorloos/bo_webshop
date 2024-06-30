@@ -45,12 +45,15 @@
   align-self: center;
   border: none;
   background: white;
+  color: black;
   border-radius: 50%;
   animation: bounce 1s infinite ease-in-out;
   cursor: pointer;
 }
-.main__hero-wrapper__scroll-btn > img {
+.main__hero-wrapper__scroll-btn > svg {
+  display: block;
   width: 4rem;
+  height: 4rem;
   aspect-ratio: 1/1;
   transform: rotate(180deg);
 }

@@ -3,7 +3,6 @@
   --text-color: #000;
   --header-background: #FFF;
   --border-color: #DDD;
-  --image-filter: none;
   --global-spacing: max(2rem, 2vw);
 }
 
@@ -12,7 +11,6 @@
   --text-color: #FFF;
   --header-background: #121212;
   --border-color: #444;
-  --image-filter: invert(100%);
 }
 
 *, *::before, *::after {
@@ -100,6 +98,7 @@ img {
 .product-card__bottom-row__purchase {
   border: none;
   background: none;
+  color: inherit;
   -webkit-backdrop-filter: invert(5%);
           backdrop-filter: invert(5%);
   padding: 0.5rem 1rem;
@@ -107,9 +106,6 @@ img {
   transition: backdrop-filter 0.2s;
   transition: backdrop-filter 0.2s, -webkit-backdrop-filter 0.2s;
   cursor: pointer;
-}
-:root.darkmode .product-card__bottom-row__purchase > img {
-  filter: invert(100%);
 }
 .product-card__bottom-row__purchase:hover {
   -webkit-backdrop-filter: invert(10%);
@@ -136,6 +132,25 @@ img {
   background: #444 !important;
 }
 :root.darkmode .black-button {
+  box-shadow: 0 0 0 1px var(--border-color);
+  background: var(--header-background);
+}
+
+.popup-modal {
+  background: var(--header-background);
+  color: var(--text-color);
+  border: none;
+  position: fixed;
+  margin: 2rem;
+  margin-left: auto;
+  bottom: 0;
+  right: 0;
+  padding: 2rem;
+  z-index: 100;
+  box-shadow: 0 0 0.5rem 0.1rem rgba(102, 102, 102, 0.6666666667);
+  animation: card-popup 0.5s both, card-popup 0.5s 3s reverse both;
+}
+:root.darkmode .popup-modal {
   box-shadow: 0 0 0 1px var(--border-color);
   background: var(--header-background);
 }

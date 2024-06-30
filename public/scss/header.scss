@@ -19,8 +19,8 @@ header {
         align-items: center;
         gap: 1rem;
 
-        & > img { height: 100%; }
-        & > span { font-weight: 600; }
+        &__logo { height: 100%; }
+        &__slogan { font-weight: 600; }
     }
 
     &__nav {
@@ -69,19 +69,10 @@ header {
     &__logo-wrapper, &__account {
         flex: 1 1 0;
         height: 100%;
-
-        & img {
-            filter: var(--image-filter);
-        }
     }
 
-    &__logo-wrapper {
-        display: flex;
-        align-items: center;
-    }
-
-    &__logo {
-        height: 2rem;
+    &__logo-wrapper__logo {
+        display: block;
     }
 
     &__nav {
@@ -104,7 +95,6 @@ header {
             &__arrow {
                 height: 2.4rem;
                 aspect-ratio: 1/1;
-                filter: var(--image-filter);
                 transition: transform 0.2s;
             }
         }
@@ -164,17 +154,26 @@ header {
     }
 
     &__account {
+        height: 3rem;
         display: flex;
         justify-content: flex-end;
-        align-items: stretch;
         gap: 2rem;
 
-        & > a, & > div {
+        &__icon {
+            display: block;
+            height: 100%;
+            aspect-ratio: 1/1;
             transition: transform 0.2s;
             cursor: pointer;
 
-            &:hover { transform: scale(1.1); }
-            & > img { height: 100%; }
+            &:hover {
+                transform: scale(1.1);
+            }
+            
+            & > svg {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         &__menu-wrapper {

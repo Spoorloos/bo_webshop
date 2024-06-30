@@ -20,7 +20,7 @@
                 <a class="main__hero-wrapper__content__show-now" href="search.php">Shop Now</a>
             </div>
             <a class="main__hero-wrapper__scroll-btn" href="#sales-section">
-                <img src="assets/chevron_arrow.svg" alt="arrow">
+                <svg class="bottom-header__nav-item__name__arrow" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 -960 960 960" fill="currentColor"><path d="m480-555.69-184 184L267.69-400 480-612.31 692.31-400 664-371.69l-184-184Z"/></svg>
             </a>
         </div>
         <section class="main__sales" id="sales-section">

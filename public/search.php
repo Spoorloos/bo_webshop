@@ -3,8 +3,9 @@
     $connection = new DatabaseConnection();
 
     // Get the min and max prices
-    $prices = $connection->fetch('SELECT min(price) AS lowestprice, max(price) AS highestprice FROM product');
-    [ $lowestprice, $highestprice ] = $prices->fetch_array();
+    [ $lowestprice, $highestprice ] = $connection
+        ->fetch('SELECT min(price) AS lowestprice, max(price) AS highestprice FROM product')
+        ->fetch_array();
 
     // Get categories
     $all_catagories = $connection->fetch('SELECT name FROM category')->fetch_all();
@@ -42,7 +43,6 @@
                 <input class="search__bar" type="text" name="query" placeholder="Search for products" value="<?php echo $query ?>" size="10">
                 <input class="search__search black-button" type="submit" value="Search">
             </section>
-        
             <div class="main">
                 <section class="main__filter">
                     <h2>Prices</h2>

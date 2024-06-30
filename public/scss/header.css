@@ -18,10 +18,10 @@ header {
   align-items: center;
   gap: 1rem;
 }
-.top-header__klarna > img {
+.top-header__klarna__logo {
   height: 100%;
 }
-.top-header__klarna > span {
+.top-header__klarna__slogan {
   font-weight: 600;
 }
 .top-header__nav {
@@ -67,15 +67,8 @@ header {
   flex: 1 1 0;
   height: 100%;
 }
-.bottom-header__logo-wrapper img, .bottom-header__account img {
-  filter: var(--image-filter);
-}
-.bottom-header__logo-wrapper {
-  display: flex;
-  align-items: center;
-}
-.bottom-header__logo {
-  height: 2rem;
+.bottom-header__logo-wrapper__logo {
+  display: block;
 }
 .bottom-header__nav {
   display: flex;
@@ -96,7 +89,6 @@ header {
 .bottom-header__nav-item__name__arrow {
   height: 2.4rem;
   aspect-ratio: 1/1;
-  filter: var(--image-filter);
   transition: transform 0.2s;
 }
 .bottom-header__nav-item__wrapper {
@@ -144,19 +136,23 @@ header {
   box-shadow: none;
 }
 .bottom-header__account {
+  height: 3rem;
   display: flex;
   justify-content: flex-end;
-  align-items: stretch;
   gap: 2rem;
 }
-.bottom-header__account > a, .bottom-header__account > div {
+.bottom-header__account__icon {
+  display: block;
+  height: 100%;
+  aspect-ratio: 1/1;
   transition: transform 0.2s;
   cursor: pointer;
 }
-.bottom-header__account > a:hover, .bottom-header__account > div:hover {
+.bottom-header__account__icon:hover {
   transform: scale(1.1);
 }
-.bottom-header__account > a > img, .bottom-header__account > div > img {
+.bottom-header__account__icon > svg {
+  width: 100%;
   height: 100%;
 }
 .bottom-header__account__menu-wrapper {

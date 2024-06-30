@@ -41,13 +41,13 @@
                     <?php endif; ?>
                 </strong>
                 <p class="product__info__description"><?php echo $product['description'] ?></p>
-                <button class="product__info__addtocart black-button" type="button" onclick="addToCart(event, <?php echo $product['id'] ?>)">Add To Cart</button>
+                <button class="product__info__addtocart black-button" type="button" onclick="addToCartButton(event, <?php echo $product['id'] ?>)">Add To Cart</button>
                 <span class="product__info__dtext">Direct leverbaar | Gratis verzending vanaf €30</span>
             </div>
             <dialog class="product__image-modal">
                 <img class="product__image-modal__image" src="<?php echo $product['image'] ?>" alt="product image">
                 <button class="product__image-modal__close" type="button" onclick="closeModal()">
-                    <img src="assets/close.svg" alt="close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"></path></svg>
                 </button>
             </dialog>
         </article>

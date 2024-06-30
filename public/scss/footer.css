@@ -5,8 +5,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1;
-}
-:root.darkmode .footer > img {
-  filter: invert(100%);
+  margin-top: auto;
 }

@@ -26,23 +26,37 @@ function updateCards() {
 window.addEventListener('scroll', updateCards);
 window.addEventListener('load', updateCards);
 
-function addToCart(event, id) {
-    event.preventDefault();
-    
+function showModal(title, content) {
+    const popup = document.createElement('dialog');
+    popup.className = 'popup-modal';
+    popup.innerHTML = `
+        <h2>${title}</h2>
+        <p>${content}</p>
+    `;
+    popup.show();
+    setTimeout(() => popup.remove(), 4000);
+    document.body.appendChild(popup);
+}
+
+function addToCart(id) {
     let cart = JSON.parse(Cookie.get('cart')) ?? [];
     cart.push(id);
     Cookie.set('cart', JSON.stringify(cart));
 }
 
-function removeFromCart(event, id) {
-    event.preventDefault();
-
+function removeFromCart(id) {
     let cart = JSON.parse(Cookie.get('cart')) ?? [];
     const index = cart.indexOf(id);
     if (index !== -1) {
         cart.splice(index, 1);
     }
     Cookie.set('cart', JSON.stringify(cart));
+}
+
+function addToCartButton(event, id) {
+    event.preventDefault();
+    addToCart(id);
+    showModal('Added to cart', 'The product was added to the cart');
 }
 
 const cartCards = document.querySelectorAll('.shopping-cart-card');
@@ -54,12 +68,14 @@ for (const card of cartCards) {
     if (!productID || !removeButton || !addButton) continue;
 
     removeButton.onclick = function(event) {
-        removeFromCart(event, productID);
+        event.preventDefault();
+        removeFromCart(productID);
         location.reload();
     }
 
     addButton.onclick = function(event) {
-        addToCart(event, productID);
+        event.preventDefault();
+        addToCart(productID);
         location.reload();
     }
 }
