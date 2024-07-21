@@ -1,7 +1,7 @@
 <?php
-    if (isset($_POST['email']) && isset($_POST['password'])) {
-        echo "Your email is: ${htmlspecialchars($_POST['email'])}<br>";
-        echo "Your password is: ${htmlspecialchars($_POST['password'])}";
+    if (isset($_POST['email'], $_POST['password'])) {
+        echo 'Your email is: ' . htmlspecialchars($_POST['email']) . '<br>';
+        echo 'Your password is: ' . htmlspecialchars($_POST['password']);
         return;
     }
 ?>
