@@ -40,7 +40,7 @@
     <main>
         <form method="GET" autocomplete="off">
             <section class="search">
-                <input class="search__bar" type="text" name="query" placeholder="Search for products" value="<?php echo $query ?>" size="10">
+                <input class="search__bar" type="text" name="query" placeholder="Search for products" value="<?php echo htmlspecialchars($query, ENT_QUOTES) ?>">
                 <input class="search__search black-button" type="submit" value="Search">
             </section>
             <div class="main">
@@ -59,7 +59,7 @@
                             step="0.01"
                             min="<?php echo $lowestprice ?>"
                             max="<?php echo $highestprice ?>"
-                            value="<?php echo $min_price ?>"
+                            value="<?php echo htmlspecialchars($min_price, ENT_QUOTES) ?>"
                             oninput="this.parentNode.querySelector('.input-value').innerText = '€ ' + (+this.value).toFixed(2)"
                             onchange="this.form.submit()">
                     </div>
@@ -76,26 +76,28 @@
                             step="0.01"
                             min="<?php echo $lowestprice ?>"
                             max="<?php echo $highestprice ?>"
-                            value="<?php echo $max_price ?>"
+                            value="<?php echo htmlspecialchars($max_price, ENT_QUOTES) ?>"
                             oninput="this.parentNode.querySelector('.input-value').innerText = '€ ' + (+this.value).toFixed(2)"
                             onchange="this.form.submit()">
                     </div>
                     <h2>Categories</h2>
                     <?php foreach ($all_catagories as [ $category ]): ?>
                         <div class="main__filter__category">
+                            <?php
+                                $filtered = htmlspecialchars($category, ENT_QUOTES);
+                            ?>
                             <input
                                 class="main__filter__input"
                                 type="checkbox"
-                                id="<?php echo $category ?>"
                                 name="categories[]"
-                                value="<?php echo $category ?>"
+                                id="<?php echo $filtered ?>"
+                                value="<?php echo $filtered ?>"
                                 onchange="this.form.submit()"
-                                <?php
-                                    echo $first_load || in_array($category, $categories) ? 'checked' : ''
-                                ?>>
-                            <label
-                                class="main__filter__label"
-                                for="<?php echo $category ?>"><?php echo $category ?></label>
+                                <?php if ($first_load || in_array($category, $categories)) echo 'checked'; ?>
+                            >
+                            <label class="main__filter__label" for="<?php echo $filtered ?>">
+                                <?php echo $filtered ?>
+                            </label>
                         </div>
                     <?php endforeach; ?>
                 </section>
