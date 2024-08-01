@@ -4,9 +4,9 @@ This is my final project for BO Module 4 "Webshop".
 
 ## About
 
-For this assignment each student was assigned a well known webshop to copy the design from (for me, https://geurwolkje.nl/).
-I copied the design over pretty closely while making some slight design changes I thought looked better.
-I made the webshop close to functional. It's missing an admin panel and order processing system, however those weren't required whatsoever, as we didn't even really needed to add a backend.
+For this assignment each student was assigned a well known webshop to copy the design from, for me: https://geurwolkje.nl/.
+I copied the design over pretty closely while making some slight design changes that I thought looked better.
+I made the webshop close to completely functional. It's missing an admin panel and order processing system, however those weren't required whatsoever, as we didn't even really needed to add a backend.
 
 ## Features
 
